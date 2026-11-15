@@ -1,0 +1,21 @@
+:host {
+  position: relative;
+  display: block;
+  // cancel the page padding so the photo fills the screen under the header
+  margin: calc(-1 * var(--page-padding));
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: calc(100dvh - var(--header-height));
+  object-fit: contain;
+  background: #000;
+}
+
+.remove {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+}

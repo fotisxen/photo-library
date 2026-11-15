@@ -1,0 +1,12 @@
+@if (photo(); as photo) {
+  <img [src]="photo.fullUrl" alt="Photo" />
+
+  <button mat-flat-button class="remove" (click)="remove()">
+    <mat-icon>delete</mat-icon>
+    Remove from favorites
+  </button>
+} @else {
+  <app-empty-state icon="image_not_supported" title="Photo not found">
+    <a mat-flat-button routerLink="/favorites">Back to favorites</a>
+  </app-empty-state>
+}

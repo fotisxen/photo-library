@@ -1,27 +1,44 @@
-# GalleryTemplate
+# Photo Library
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
+Infinite stream of random photos with a Favorites library.
 
-## Development server
+Built with Angular 22, Angular Material and SCSS. Unit tests run with Vitest.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Running it
 
-## Code scaffolding
+```bash
+npm install
+npm start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Then open http://localhost:4200.
 
-## Build
+```bash
+npm test     # unit tests
+npm run build
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Pages
 
-## Running unit tests
+- `/` - random photos, loads more while you scroll. Click a photo to add it to favorites.
+- `/favorites` - your favorite photos. Click one to open it.
+- `/photos/:id` - one photo in full screen with a "Remove from favorites" button.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Favorites are saved in localStorage so they stay after a refresh.
 
-## Running end-to-end tests
+## Notes
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Photos come from picsum.photos (`/seed/<id>/400/600`). Using the id as seed means a saved photo always shows the same image.
+- `PhotoApi` fakes a real backend: every request takes a random 200-300ms.
+- Infinite scroll is implemented in `shared/directives/infinite-scroll.ts` with an IntersectionObserver on an empty element below the grid. No libraries.
 
-## Further help
+## Structure
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+src/app
+  core/        photo model and services (api, favorites, photo stream)
+  layout/      header
+  shared/      reusable components (photo card, photo grid, loader, empty state) and the infinite scroll directive
+  features/    one folder per page, lazy loaded
+  testing/     helpers for the unit tests
+```

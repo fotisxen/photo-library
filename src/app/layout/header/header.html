@@ -1,0 +1,14 @@
+<mat-toolbar>
+  <span class="title">Photo Library</span>
+
+  <nav>
+    <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <mat-icon>photo_library</mat-icon>
+      Photos
+    </a>
+    <a mat-button routerLink="/favorites" routerLinkActive="active">
+      <mat-icon>favorite</mat-icon>
+      Favorites
+    </a>
+  </nav>
+</mat-toolbar>

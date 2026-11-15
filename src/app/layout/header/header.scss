@@ -1,0 +1,28 @@
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: block;
+}
+
+mat-toolbar {
+  background: var(--mat-sys-surface-container);
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.active {
+  background: var(--mat-sys-secondary-container);
+  font-weight: 600;
+}
+
+@media (max-width: 599px) {
+  .title {
+    display: none;
+  }
+}

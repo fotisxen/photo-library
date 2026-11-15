@@ -1,0 +1,9 @@
+<button type="button" class="card" matRipple (click)="selected.emit(photo())">
+  <img [src]="photo().thumbnailUrl" alt="" width="400" height="600" loading="lazy" />
+
+  @if (favorite()) {
+    <span class="badge">
+      <mat-icon>favorite</mat-icon>
+    </span>
+  }
+</button>
